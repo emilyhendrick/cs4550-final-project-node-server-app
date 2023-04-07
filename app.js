@@ -1,16 +1,34 @@
 import express from "express";
-import MathController from "./controllers/math-controller.js";
-import TuitController from "./controllers/tuit-controller.js";
+import UsersController from "./controllers/users/users-controller.js";
+import ReviewsController from "./reviews/reviews-controller.js";
+import session from "express-session";
 import cors from "cors";
+import mongoose from "mongoose";
+mongoose.connect("mongodb+srv://finalproject4550:hYLL09EUEFoyvDaY@cluster0.6fwkg2y.mongodb.net/?retryWrites=true&w=majority");
+
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    origin: "http://localhost:3000",
+  })
+);
+app.use(
+  session({
+    secret: "secret",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+app.use(express.json());
 const port = 4000;
 
-MathController(app);
-TuitController(app);
+UsersController(app);
+ReviewsController(app);
 
 const welcome = (req, res) => {
-  res.send("Welcome to Node.js!");
+  res.send("Final project server");
 };
 app.get("/", welcome);
 
