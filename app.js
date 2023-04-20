@@ -36,7 +36,7 @@ app.get("/about", (req, res) => {
   res.send("<h1>About Page</h1><p>This is the about page</p>");
 });
 
-app.get("/contact", (req, res) => {
+app.get("/api/users", (req, res) => {
   res.json({
     name: "John Doe",
   });
