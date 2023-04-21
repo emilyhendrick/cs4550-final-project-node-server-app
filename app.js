@@ -30,17 +30,9 @@ ReviewsController(app);
 const welcome = (req, res) => {
   res.send("Final project server");
 };
+
 app.get("/", welcome);
 
-app.get("/about", (req, res) => {
-  res.send("<h1>About Page</h1><p>This is the about page</p>");
-});
-
-app.get("/contact", (req, res) => {
-  res.json({
-    name: "John Doe",
-  });
-});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);

@@ -6,8 +6,6 @@ export default [
     firstName: "John",
     lastName: "Doe",
     email: "jdoe@gmail.com",
-    phone: "123-456-7890",
-    isAdmin: true,
   },
   {
     _id: "2",
@@ -16,7 +14,5 @@ export default [
     firstName: "Jane",
     lastName: "Doe",
     email: "janedoe@gmail.com",
-    phone: "123-456-7890",
-    isAdmin: false,
   },
 ];
