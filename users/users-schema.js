@@ -8,7 +8,7 @@ const usersSchema = new mongoose.Schema(
       lastName: String,
       email: {type: String},
       createdOn: {type: Date, default: Date.now},
-      profilePic: {type: Image},
+      profilePic: {type: String},
     },
     {collection: "users"}
 );

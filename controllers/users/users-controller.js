@@ -1,4 +1,3 @@
-import users from "./users.js";
 import * as dao from "../../users/users-dao.js";
 
 // let currentUser = null;
@@ -7,6 +6,11 @@ const UsersController = (app) => {
   const findAllUsers = async (req, res) => {
     const users = await dao.findAllUsers();
     res.json(users);
+  };
+  const findUserByUsername = async (req, res) => {
+    // const user = users.find((user) => user.username === req.params.username);
+    const user = await dao.findUserByUsername(req.params.username);
+    res.json(user);
   };
   const findUserById = async (req, res) => {
     // const user = users.find((user) => user.id === req.params.id);
@@ -75,7 +79,8 @@ const UsersController = (app) => {
   app.post("/api/users/register", register);
 
   app.get("/api/users", findAllUsers);
-  app.get("/api/users/:id", findUserById);
+  app.get("/api/users/username/:username", findUserByUsername);
+  // app.get("/api/users/:id", findUserById);
   app.post("/api/users", createUser);
   app.put("/api/users/:id", updateUser);
   app.delete("/api/users/:id", deleteUser);
