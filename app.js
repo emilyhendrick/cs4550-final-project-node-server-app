@@ -5,6 +5,7 @@ import session from "express-session";
 import cors from "cors";
 import mongoose from "mongoose";
 mongoose.connect("mongodb+srv://finalproject4550:hYLL09EUEFoyvDaY@cluster0.6fwkg2y.mongodb.net/?retryWrites=true&w=majority");
+import AuthController from "./users/auth-controller.js";
 
 const app = express();
 app.use(
@@ -37,3 +38,5 @@ app.get("/", welcome);
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
+
+AuthController(app);
