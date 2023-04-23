@@ -1,6 +1,7 @@
 import express from "express";
 import UsersController from "./controllers/users/users-controller.js";
 import ReviewsController from "./reviews/reviews-controller.js";
+import TuitsController from "./controllers/tuits/tuits-controller.js";
 import session from "express-session";
 import cors from "cors";
 import mongoose from "mongoose";
@@ -24,7 +25,7 @@ app.use(
 
 app.use(express.json());
 const port = 4000;
-
+TuitsController(app);
 UsersController(app);
 ReviewsController(app);
 
