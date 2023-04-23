@@ -12,6 +12,11 @@ const UsersController = (app) => {
     const user = await dao.findUserByUsername(req.params.username);
     res.json(user);
   };
+  const findUserByRestaurant = async (req, res) => {
+    // const user = users.find((user) => user.username === req.params.username);
+    const user = await dao.findUserByRestaurant(req.params.businessName);
+    res.json(user);
+  };
   const findUserById = async (req, res) => {
     // const user = users.find((user) => user.id === req.params.id);
     const user = await dao.findUserById(req.params.id);
@@ -80,6 +85,8 @@ const UsersController = (app) => {
 
   app.get("/api/users", findAllUsers);
   app.get("/api/users/username/:username", findUserByUsername);
+  app.get("/api/users/restaurant/:businessName", findUserByRestaurant);
+
   // app.get("/api/users/:id", findUserById);
   app.post("/api/users", createUser);
   app.put("/api/users/:id", updateUser);

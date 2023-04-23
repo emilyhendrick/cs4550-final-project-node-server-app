@@ -16,6 +16,12 @@ export const findUserByUsername = async (username) => {
   return user;
 };
 
+export const findUserByRestaurant = async (businessName) => {
+  // const user = await usersModel.find({username});
+  const user = await usersModel.findOne({ businessName: businessName });
+  return user;
+};
+
 export const findUserByCredentials = async ({ username, password }) => {
   const user = await usersModel.findOne({ username, password });
   return user;
